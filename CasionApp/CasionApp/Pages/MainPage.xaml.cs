@@ -31,5 +31,11 @@ namespace CasionApp.Pages
         {
             GameFrame.Navigate(new ProfilePage());
         }
+
+        private void BExit_Click(object sender, RoutedEventArgs e)
+        {
+            App.mainFrame.Navigate(new LoginPage());
+            
+        }
     }
 }

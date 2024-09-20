@@ -83,5 +83,26 @@ namespace CasionApp.Pages
                 printDialog.PrintVisual(LVGames, "");
             }
         }
+
+        private void BRemove_Click(object sender, RoutedEventArgs e)
+        {
+            var listTransaction = App.DB.Transaction.Where(x => x.UserId == App.contextUser.Id).ToList();
+            foreach (var item in listTransaction)
+            {
+                App.DB.Transaction.Remove(item);
+            }
+
+            var listGame = App.DB.Game.Where(x => x.UserId == App.contextUser.Id).ToList();
+            foreach(var game in listGame)
+            {
+                foreach (var roundGame in App.DB.RoundGame.Where(x=>x.GameId==game.Id).ToList())
+                    App.DB.RoundGame.Remove(roundGame);
+                App.DB.Game.Remove(game);
+            }
+
+            App.DB.User.Remove(App.contextUser);
+            App.DB.SaveChanges();
+            App.mainFrame.Navigate(new LoginPage());
+        }
     }
 }

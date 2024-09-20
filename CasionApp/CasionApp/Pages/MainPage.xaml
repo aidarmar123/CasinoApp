@@ -13,12 +13,20 @@
             <RowDefinition/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <StackPanel x:Name="SpUser"
-                    MouseDown="SpUser_MouseDown">
-            <TextBlock Text="{Binding Name}"
-                       FontSize="32"/>
-            <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0} RUB'}"/>
-        </StackPanel>
+        <Grid>
+            <StackPanel x:Name="SpUser"
+             MouseDown="SpUser_MouseDown">
+                <TextBlock Text="{Binding Name}"
+                FontSize="32"/>
+                <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0} RUB'}"/>
+            </StackPanel>
+            <Button x:Name="BExit"
+                    Content="Выход"
+                    Click="BExit_Click"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Center"/>
+        </Grid>
+       
         <Frame Grid.Row="1"
                NavigationUIVisibility="Hidden"
                x:Name="GameFrame"/>

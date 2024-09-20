@@ -25,6 +25,10 @@
             <Button x:Name="BEdit"
                     Click="BEdit_Click"
                     Content="Изменить"/>
+            <Button x:Name="BRemove"
+                    Click="BRemove_Click"
+                    Content="Удалить учетную запись"/>
+            
             <Button x:Name="BTopUp"
                     Click="BTopUp_Click"
                     Content="Пополнить/Снять"/>
