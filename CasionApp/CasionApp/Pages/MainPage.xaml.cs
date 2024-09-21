@@ -35,7 +35,6 @@ namespace CasionApp.Pages
         private void BExit_Click(object sender, RoutedEventArgs e)
         {
             App.mainFrame.Navigate(new LoginPage());
-            
         }
     }
 }

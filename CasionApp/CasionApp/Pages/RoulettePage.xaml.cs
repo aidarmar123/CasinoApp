@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -63,9 +64,17 @@ namespace CasionApp.Pages
                     App.DB.Game.Add(contextGame);
                     App.DB.SaveChanges();
                 }
-                   
 
-                ImageScaleTransform.ScaleY *= -1;
+                DoubleAnimation rotateAnimation = new DoubleAnimation
+                {
+                    From = 0,
+                    To = 360,
+                    Duration = new Duration(TimeSpan.FromSeconds(2)),
+                    RepeatBehavior = new RepeatBehavior(1) // Анимация выполняется один раз
+                };
+
+                // Применяем анимацию к трансформации вращения
+                RotateTransform.BeginAnimation(RotateTransform.AngleProperty, rotateAnimation);
                 var random = new Random();
                 int result = random.Next(0, 37);
 

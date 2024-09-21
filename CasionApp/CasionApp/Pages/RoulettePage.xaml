@@ -20,16 +20,22 @@
             </Grid.RowDefinitions>
             <Image Stretch="Uniform"
                    x:Name="IRoulete"
-                RenderTransformOrigin="0.5,0.5"
-                Source="/Resourses/CasinoImage.jpg">
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Width="200"
+                   Height="200"
+                Source="/Resourses/CasinoRoulette.png">
                 <Image.RenderTransform>
-                    <ScaleTransform x:Name="ImageScaleTransform" ScaleX="1" ScaleY="1"/>
+                    <RotateTransform x:Name="RotateTransform" Angle="0"
+                                 CenterX="100"
+                                 CenterY="100"/>
                 </Image.RenderTransform>
             </Image>
             <TextBlock Text="{Binding Result}"
                        Grid.Row="1"
                        Foreground="White"
                        HorizontalAlignment="Center"/>
+             
         </Grid>
         <Grid x:Name="Table"
               Grid.Row="1">

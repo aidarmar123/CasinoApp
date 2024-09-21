@@ -14,12 +14,19 @@
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <Grid>
-            <StackPanel x:Name="SpUser"
-             MouseDown="SpUser_MouseDown">
-                <TextBlock Text="{Binding Name}"
-                FontSize="32"/>
-                <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0} RUB'}"/>
+            <StackPanel Orientation="Horizontal"
+                         x:Name="SpUser"
+                         MouseDown="SpUser_MouseDown">
+                <Image Source="{Binding QrCode}"
+                       Width="70"
+                       Margin="5"/>
+                <StackPanel>
+                    <TextBlock Text="{Binding Name}"
+                               FontSize="32"/>
+                    <TextBlock Text="{Binding Balance, StringFormat='Баланс: {0} RUB'}"/>
+                </StackPanel>
             </StackPanel>
+            
             <Button x:Name="BExit"
                     Content="Выход"
                     Click="BExit_Click"
